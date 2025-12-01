@@ -47,31 +47,35 @@ npm run preview
 
 ## Deploying to Netlify
 
-This app is configured for easy deployment to Netlify.
+This app is configured for easy deployment to Netlify. The repository includes a `netlify.toml` file at the root that automatically configures the build settings.
 
-### Option 1: Deploy via Netlify CLI
-
-```bash
-npm install -g netlify-cli
-netlify login
-netlify deploy --prod
-```
-
-### Option 2: Deploy via Git
+### Option 1: Deploy via Git (Recommended)
 
 1. Push your code to a Git repository (GitHub, GitLab, etc.)
 2. Go to [Netlify](https://app.netlify.com)
 3. Click "Add new site" → "Import an existing project"
 4. Connect your repository
-5. Set the following build settings:
-   - **Base directory**: `web-app`
-   - **Build command**: `npm run build`
-   - **Publish directory**: `web-app/dist`
+5. Netlify will automatically detect the `netlify.toml` configuration file
 6. Click "Deploy"
+
+The netlify.toml file configures:
+- **Base directory**: `web-app`
+- **Build command**: `npm run build`
+- **Publish directory**: `dist`
+- **SPA redirects**: All routes redirect to index.html to prevent 404 errors
+
+### Option 2: Deploy via Netlify CLI
+
+```bash
+cd /path/to/repository/root
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod
+```
 
 ### Option 3: Drag and Drop
 
-1. Run `npm run build`
+1. Run `npm run build` from the `web-app` directory
 2. Go to [Netlify Drop](https://app.netlify.com/drop)
 3. Drag the `dist` folder to the browser
 
