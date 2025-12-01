@@ -1,4 +1,4 @@
-# Netlify configuration for Okular Web
+# Netlify configuration for the Okular web application
 # This file is placed at the repository root to enable deployment
 [build]
   base = "web-app"
@@ -22,14 +22,17 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
+    # Cache static assets for 1 year (31536000 seconds)
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
+    # Cache JavaScript files for 1 year (31536000 seconds)
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
+    # Cache CSS files for 1 year (31536000 seconds)
     Cache-Control = "public, max-age=31536000, immutable"
