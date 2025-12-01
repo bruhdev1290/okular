@@ -16,3 +16,12 @@ CMakeLists.txt.user*
 # Flatpak
 .flatpak-builder
 build-dir
+
+# Web and Mobile Apps
+web-app/node_modules
+web-app/dist
+mobile-app/node_modules
+mobile-app/.expo
+mobile-app/dist
+mobile-app/ios
+mobile-app/android
